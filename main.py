@@ -8,12 +8,9 @@
 # used to create a custom window for triangle calculator
 import tkinter as tk
 from math import sqrt
+from PIL import ImageTk, Image
 
 #                      FUNCTION
-
-
-
-
 
 def get_sidec():
     # gets the three entries
@@ -23,7 +20,6 @@ def get_sidec():
 
     tbox_c.config(state='normal')
   
-    #age calculated is inserted into the text box after clearing the previous info in the text box
     
     tbox_c.delete('1.0', tk.END)
     tbox_c.insert(tk.END,c)
@@ -32,8 +28,7 @@ def get_sidec():
 def display_calc_c():    
     tbox_c.config(state='normal')
 
-    
-    #c calculated is inserted into the text box after clearing the previous info in the textbox.
+#c calculated is inserted into the text box after clearing the previous info in the textbox.
 
 def display_calc_sidec(sidec):    
     tbox_c.config(state='normal')
@@ -54,45 +49,48 @@ def exit():
   
   
 #                      WINDOW MAIN
-# Create a object which stores today's whole date using datetime function
-
+#Making a the code go into a window in output
 
 # Creating a custom window
 
 window = tk.Tk()
 window.geometry("600x300")
-window.config(bg="#F7DC6F")
+window.config(bg="#ADD8E6")
 window.resizable(width=False,height=False)
 window.title('Right Angle triangle solver')
 
 #Labels for Heading and Subheading of GUI
-lb_heading = tk.Label(window,text="Right Angle Triangle Solver",font=("Arial",20),fg="black",bg="#F7DC6F")
-lb_subheading = tk.Label(window,font=("Arial",12),text="Enter your Triangle Side Values for Solving Hypotenuse Side!",fg="black",bg="#F7DC6F")
+lb_heading = tk.Label(window,text="Right Angle Triangle Solver",font=("Arial",20),fg="black",bg="#ADD8E6")
+lb_subheading = tk.Label(window,font=("Arial",12),text="Enter Your Triangle Side Values for Solving the Hypotenuse Side!",fg="black",bg="#ADD8E6")
 
-# labels for date, month and year
-lb_sidea = tk.Label(window,text = "Side A: ",font=('Arial',12,"bold"),fg="darkgreen",bg="#F7DC6F")
+# labels for sidea and sideb
+lb_sidea = tk.Label(window,text = "Side A: ",font=('Arial',12,"bold"),fg="#ebab09",bg="#ADD8E6")
 
-lb_sideb = tk.Label(window,text = "Side B: ",font=('Arial',12,"bold"),fg="darkgreen",bg="#F7DC6F")
+lb_sideb = tk.Label(window,text = "Side B: ",font=('Arial',12,"bold"),fg="#ebab09",bg="#ADD8E6")
 
 
-# Entry boxes for date, month and year
+# Entry boxes for sideb and sidea
 e_sidea = tk.Entry(window,width=5)
 e_sideb = tk.Entry(window,width=5)
-#e_sidec = tk.Entry(window,width=5)
+
 
 # Button to solve triangle
 btn_calculate_sidec = tk.Button(window,text="Solve",font=("Arial",13), command=get_sidec)
 
 
-lb_calculated_sidec = tk.Label(window,text="Side C = ",font=("Arial",12,"bold"),fg="darkgreen",bg="#F7DC6F") 
+lb_calculated_sidec = tk.Label(window,text="Side C = ",font=("Arial",12,"bold"),fg="#ebab09",bg="#ADD8E6") 
 tbox_c=tk.Text(window,width=5,height=0,state="disabled")
 
+# Create an object of tkinter ImageTk
+img = ImageTk.PhotoImage(Image.open("triangle.png"))
 
+
+#Exit button for exiting application
 btn_exit = tk.Button(window,text="Exit Application!",font=("Arial",13),command=exit)
 
-
-lb_heading.place(x=110,y=5)
-lb_subheading.place(x=80,y=40)
+#Placing the object
+lb_heading.place(x=110,y=10)
+lb_subheading.place(x=40,y=45)
 lb_sidea.place(x=160,y=90)
 lb_sideb.place(x=160,y=120)
 e_sidea.place(x=240,y=90)
